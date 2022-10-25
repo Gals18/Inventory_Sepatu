@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO:1. Membuat halaman home yang didalamnya terdapat list dari data sepatu.
+kemudian pada bagian ini terdiri dari tag textview, recycle view, dan floating actio button
+pada bagian tag textview digunakan untuk model sepatu, harga, stok dan tanggal.
+setelah itu kita menggunakan adapter rycleview untuk menampilkan data agar dapat discrolling.-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin"
+    tools:context=".ItemListFragment">
+
+
+    <!--Membuat tag textview Model Sepatu-->
+    <TextView
+        android:id="@+id/item_name"
+        style="@style/Widget.Inventory.Header"
+        android:layout_width="129dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:layout_marginTop="8dp"
+        android:text="@string/model_sepatu"
+        app:layout_constraintEnd_toStartOf="@+id/item_price"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--Membuat tag textview Harga Sepatu-->
+    <TextView
+        android:id="@+id/item_price"
+        style="@style/Widget.Inventory.Header"
+        android:layout_width="68dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/item_name"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:layout_marginTop="8dp"
+        android:text="@string/harga"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/item_quantity"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/item_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Membuat tag textview stok Sepatu-->
+    <TextView
+        android:id="@+id/item_quantity"
+        style="@style/Widget.Inventory.Header"
+        android:layout_width="56dp"
+        android:layout_height="26dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/stok"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/item_time"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/item_price"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--Membuat tag textview tanggal masuk barang-->
+    <TextView
+        android:id="@+id/item_time"
+        style="@style/Widget.Inventory.Header"
+        android:layout_width="80dp"
+        android:layout_height="26dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/item_tanggal"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Membuat tag recycleview -->
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        android:layout_marginTop="@dimen/margin_between_elements"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_quantity" />
+
+    <!--Berikut merupakan RecyclerView memudahkan untuk menampilkan kumpulan data
+        dalam jumlah besar secara efisien. Anda menyediakan data dan
+        menentukan tampilan setiap item, dan library RecyclerView secara dinamis membuat elemen saat diperlukan.
+        Sesuai namanya, RecyclerView mendaur ulang elemen individual tersebut.
+        Saat item di-scroll keluar layar, RecyclerView tidak merusak tampilannya. Sebaliknya,
+        RecyclerView menggunakan kembali tampilan tersebut untuk item baru yang telah di-scroll di layar. Penggunaan ulang
+        ini sangat meningkatkan performa, meningkatkan daya respons aplikasi, dan mengurangi pemakaian daya.-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="368dp"
+        android:layout_height="193dp"
+        android:layout_marginTop="12dp"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:layout_marginBottom="@dimen/margin_between_elements"
+        android:contentDescription="@string/tambah_produk"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white"
+        tools:ignore="ImageContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

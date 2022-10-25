@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO:2 pada bagian ini berisikan tag input data.
+ pada bagian ini dibangun agara nantinya pengguna dapat menginputkan data, dan datanya nanti akan
+ dikirimkan ke roomdatabase.-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin">
+<!-- Membuat constraint layout terlebih dahulu-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_name_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:hint="@string/model_produk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/item_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textAutoComplete|textCapWords"
+                android:singleLine="true"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+<!--pada kode diatas dibuat untuk form inputan model dari produk sepatu-->
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_price_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:hint="@string/harga_produk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_name_label"
+            app:prefixText="RP">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/item_price"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColorHint="#757575"
+                tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--pada kode diatas dibuat untuk form inputan Harga dari produk sepatu-->
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_count_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:hint="@string/jumlah_stok"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_price_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/item_count"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:inputType="number"
+                android:singleLine="true"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--pada kode diatas dibuat untuk form inputan jumlah dari stok sepatu-->
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_time_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:hint="@string/tanggal"
+            app:layout_constraintBottom_toTopOf="@+id/save_action"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_count_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@id/item_time"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:inputType="number"
+                android:singleLine="true"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--pada kode diatas dibuat untuk form inputan tanggal kapan sepatu dikirim-->
+
+
+        <Button
+            android:id="@+id/save_action"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/simpan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_time_label" />
+        <!--pada kode diatas dibuat untuk membuat button simpan-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
